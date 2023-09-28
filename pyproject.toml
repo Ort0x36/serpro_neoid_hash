@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "raw-signature-neoid"
+version = "0.1.0"
+description = ""
+authors = ["Ort0x36 <wendel.ortiz.dev@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pendulum = "^2.1.2"
+httpx = "^0.25.0"
+pyhanko = "^0.20.1"
+pytest = "^7.4.2"
+pytest-asyncio = "^0.21.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
