@@ -217,8 +217,8 @@ async def embed_hash(
 if __name__ == "__main__":
     asyncio.run(
         embed_hash(
-            pdf_to_sign='endpoints.pdf', # # replace with your pdf
-            pdf_out_name='end.pdf', # # replace with your output file name,
+            pdf_to_sign='path/to/your/pdf', # # replace with your pdf
+            pdf_out_name='path/to/your/output_pdf', # # replace with your output file name,
             token='eyHFfj1' # # Replace with your token received in '/token' endpoint
         )
     )
