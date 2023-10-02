@@ -49,6 +49,8 @@ def save_signed_pdf(output: Union[IO, BytesIO], pdf_out_name: str) -> None:
 
     :param output: The output buffer for the signed PDF.
     :param pdf_out_name: The filename for the signed PDF output.
+    
+    :return: None
     """
     with open(file=pdf_out_name, mode='wb') as outfile:
         outfile.write(output.getbuffer())
@@ -135,6 +137,8 @@ async def sign_pdf(
     :param output: The output buffer for the signed PDF.
     :param prep_digest: Prepared digest for signing.
     :param signed_hash: Raw signature bytes (PKCS7).
+    
+    :return: None
     """
     await PdfTBSDocument.async_finish_signing(
         output=output, 
@@ -144,7 +148,7 @@ async def sign_pdf(
         
 async def embed_hash(
     pdf_to_sign: str, pdf_out_name: str, token: str, digest: str = 'sha256'
-) -> None:
+) -> Union[bool, None]:
     """
     Embeds the signed hash into the PDF document.
 
@@ -155,7 +159,9 @@ async def embed_hash(
         default: sha256
         supported: sha256 and sha512
 
-    :return: None
+    :return: False case function "get_raw_signature" return a dict
+        else None
+    :rtype: None | False
 
     This function reads a PDF document, prepares it for signature,
     sends a request to a SERPRO -> NEOID signature service 
