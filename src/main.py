@@ -35,10 +35,9 @@ def extract_der_bytes(pem_bytes: bytes) -> bytes:
     :raises ValueError: If the input is not a valid bytes object 
          or does not contain PEM-encoded data.
     """
-    if isinstance(pem_bytes, bytes):
-        if pem.detect(pem_bytes):
-            (_, _, der_bytes) = pem.unarmor(pem_bytes=pem_bytes)
-            return der_bytes
+    if isinstance(pem_bytes, bytes) and pem.detect(pem_bytes):
+        (_, _, der_bytes) = pem.unarmor(pem_bytes=pem_bytes)
+        return der_bytes
     raise ValueError(
         'not a valid bytes object or does not contain PEM-encoded data.'
     )
