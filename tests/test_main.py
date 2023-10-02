@@ -11,4 +11,4 @@ async def test_raw_sign() -> None:
         access_token=''
     )
     
-    assert isinstance(r, bytes | dict)
+    assert isinstance(r, (bytes, dict))
